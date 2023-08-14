@@ -1,0 +1,16 @@
+[provider_config]
+# database_id = "<notion_database_id>" # override the id here or defaults to NOTION_DATABASE_ID env
+filter = {property = "# Status", status = {does_not_equal = "Not Started"}}
+
+[formatter_config]
+# database_id = "<notion_database_id>" # override the id here or defaults to NOTION_DATABASE_ID env
+filter = {property = "# Status", status = {does_not_equal = "Not Started"}}
+
+[exporter_config]
+# database_id = "<notion_database_id>" # override the id here or defaults to NOTION_DATABASE_ID env
+filter = {property = "# Status", status = {does_not_equal = "Not Started"}}
+
+[runner_config]
+exporter_config_cls = ""
+formatter_config_cls = "NotionProviderConfig"
+provider_config_cls = "NotionProviderConfig"
