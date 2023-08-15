@@ -16,7 +16,7 @@ from notion2hugo.base import (
 
 
 def sanitize_path(name: str) -> str:
-    pattern = re.compile(r"[^a-zA-Z0-9-/\.]")
+    pattern = re.compile(r"[^a-zA-Z0-9-_\.]")
     return pattern.sub("", name)
 
 
