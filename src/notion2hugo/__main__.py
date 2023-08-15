@@ -45,7 +45,6 @@ def validate_and_load_config(resource_config_path: str) -> TConfig:
 def main():
     logger = get_logger(__package__)
     config = validate_and_load_config("config.toml")
-    logger.info(f"Loading config: {config}")
 
     provider_config_cls = import_and_load_config_cls(
         config["runner_config"]["provider_config_cls"]
@@ -64,9 +63,7 @@ def main():
     )
     logger.info(f"Runner config = {runner_config}")
     runner = Runner(config=runner_config)
-    logger.info("Processing starting...")
     runner.run()
-    logger.info("Processing complete.")
 
 
 if __name__ == "__main__":

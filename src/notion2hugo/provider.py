@@ -141,10 +141,7 @@ class NotionParser:
                 continue
             elif v["type"] == "title":
                 # title
-                values = [
-                    c["plain_text"].replace("[", "").replace("]", "")
-                    for c in v["title"]
-                ]
+                values = ["'" + c["plain_text"] + "'" for c in v["title"]]
                 prop["Title"] = values[0] if len(values) == 1 else values
                 continue
             c = v.get(v["type"], {})

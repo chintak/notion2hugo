@@ -36,15 +36,16 @@ class Runner(object):
         assert isinstance(self.formatter, BaseFormatter)
         assert isinstance(self.exporter, BaseExporter)
 
-        self.logger.info("Start processing... Running provider.")
+        self.logger.info(f"Processing {type(self.provider).__qualname__}.")
         async for page_content in self.provider.async_iterate():
             self.logger.info(f"Got 1 page from provider, id = {page_content.id}")
 
+            self.logger.info(f"Processing {type(self.formatter).__qualname__}.")
             formatted_post = await self.formatter.async_process(page_content)
-            self.logger.info("Formatter step complete")
 
+            self.logger.info(f"Processing {type(self.exporter).__qualname__}.")
             await self.exporter.async_process(formatted_post)
-        self.logger.info("Processing completed.")
+        self.logger.info("All pages processed.")
 
     def run(self) -> None:
         asyncio.run(self.async_run())

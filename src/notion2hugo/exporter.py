@@ -175,6 +175,12 @@ class MarkdownExporter(BaseExporter):
     def __init__(self, config: MarkdownExporterConfig):
         super(MarkdownExporter, self).__init__(config)
         self.config: MarkdownExporterConfig = config
+        self.logger.info(f"Clean up parent dir: {self.config.parent_dir}")
+        self.cleanup_parent_dir(self.config.parent_dir)
+
+    def cleanup_parent_dir(self, parent_dir: str) -> None:
+        if os.path.exists(parent_dir):
+            shutil.rmtree(parent_dir)
 
     def make_output_dirs(self, parent_dir: str, *args: str) -> None:
         os.makedirs(os.path.join(parent_dir, *args), exist_ok=True)
@@ -198,10 +204,10 @@ class MarkdownExporter(BaseExporter):
         )
         assert isinstance(post_dir_name, str), f"{post_dir_name} expected to be str"
         post_dir_name = sanitize_path(post_dir_name)
-        self.logger.debug(f"Creating output dir structure: {self.config.parent_dir}")
         post_images_dir = os.path.join(
             self.config.parent_dir, post_dir_name, self.POST_IMAGES_DIR
         )
+        self.logger.debug(f"Creating output dir structure: {post_images_dir}")
         self.make_output_dirs(post_images_dir)
         post_full_path = os.path.join(
             self.config.parent_dir, post_dir_name, self.POST_FILE_NAME
@@ -231,8 +237,6 @@ class MarkdownExporter(BaseExporter):
             texts.append(MarkdownStyler.process(blob))
         texts.append(MarkdownStyler.process(content.footer))
 
-        self.logger.info(
-            f"Exporting markdown for post id={content.id} to path={post_full_path}"
-        )
+        self.logger.info(f"Export post id={content.id} to path='{post_full_path}'")
         with open(post_full_path, "w") as fp:
             fp.write("\n".join(texts).strip())

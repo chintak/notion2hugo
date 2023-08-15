@@ -23,7 +23,6 @@ class HugoFormatter(BaseFormatter):
         self.config: HugoFormatterConfig = config
 
     async def async_process(self, content: PageContent) -> PageContent:
-        self.logger.info("Parsing page properties and creating header blob.")
         # process properties and format header
         header_props = [f"# ID: {content.id}"]
         header_props.extend(
