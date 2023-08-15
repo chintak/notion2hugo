@@ -108,3 +108,7 @@ Currently, the following Notion features are not supported for export and will b
 - [ ] Callouts
 - [ ] Cross referencing pages in the database, that is, we'd like to update the URL appropriately to refer to the published post on the blog rather than to the notion page.
 - [ ] Gist, twitter or other embeds.
+
+## Contributions
+
+Contributions are more than welcome! Please feel free to open an issue or a pull request for any bugs/feature request or any other improvements. Cheers!
