@@ -25,7 +25,7 @@ class RunnerConfig:
 
 class Runner(object):
     def __init__(self, config: RunnerConfig):
-        self.logger = get_logger(type(self).__qualname__, logging.INFO)
+        self.logger = get_logger(__package__, logging.INFO)
 
         self.provider = Factory.build_handler(config.provider_config)
         self.formatter = Factory.build_handler(config.formatter_config)

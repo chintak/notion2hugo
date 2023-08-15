@@ -35,7 +35,7 @@ class IConfig:
 @register_handler(IConfig)
 class IHandler(metaclass=ABCMeta):
     def __init__(self, config: IConfig):
-        self.logger = get_logger(type(self).__qualname__)
+        self.logger = get_logger(__package__)
 
 
 class Factory(object):
