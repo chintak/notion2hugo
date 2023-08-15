@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import asyncio
+import logging
 from dataclasses import dataclass
 
 from notion2hugo.base import (
@@ -24,23 +25,20 @@ class RunnerConfig:
 
 class Runner(object):
     def __init__(self, config: RunnerConfig):
-        self.logger = get_logger(type(self).__qualname__)
+        self.logger = get_logger(type(self).__qualname__, logging.INFO)
 
-        self.config = config
         self.provider = Factory.build_handler(config.provider_config)
         self.formatter = Factory.build_handler(config.formatter_config)
         self.exporter = Factory.build_handler(config.exporter_config)
 
     async def async_run(self) -> None:
-        self.logger.info("Start processing... Running provider.")
         assert isinstance(self.provider, BaseProvider)
         assert isinstance(self.formatter, BaseFormatter)
         assert isinstance(self.exporter, BaseExporter)
 
+        self.logger.info("Start processing... Running provider.")
         async for page_content in self.provider.async_iterate():
-            self.logger.info("Got 1 page from provider")
-
-            self.logger.warn(page_content)
+            self.logger.info(f"Got 1 page from provider, id = {page_content.id}")
 
             formatted_post = await self.formatter.async_process(page_content)
             self.logger.info("Formatter step complete")

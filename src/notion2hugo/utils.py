@@ -1,9 +1,8 @@
 import logging
 
 
-def get_logger(name: str) -> logging.Logger:
+def get_logger(name: str, level: int = logging.INFO) -> logging.Logger:
     console = logging.StreamHandler()
-    console.setLevel(logging.INFO)
     console.setFormatter(
         logging.Formatter(
             fmt="%(asctime)s %(levelname)s %(name)s:%(filename)s:%(lineno)s] "
@@ -13,4 +12,5 @@ def get_logger(name: str) -> logging.Logger:
     )
     logger = logging.getLogger(name)
     logger.addHandler(console)
+    logger.setLevel(level)
     return logger

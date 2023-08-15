@@ -39,11 +39,14 @@ Provider --produces--> PageContent --consumed_by--> Formatter --produces-->
 """
 
 from abc import abstractmethod
-from dataclasses import dataclass
+from collections.abc import MutableMapping
+from dataclasses import dataclass, field
 from enum import StrEnum
-from typing import AsyncIterator, Dict, List, Optional, Union
+from typing import AsyncIterator, List, Optional
 
 from notion2hugo.registry import IConfig, IHandler, register_handler
+
+Properties = MutableMapping[str, str | int | bool | List[str]]
 
 
 class BlobType(StrEnum):
@@ -60,26 +63,45 @@ class BlobType(StrEnum):
     PARAGRAPH = "paragraph"
     QUOTE = "quote"
     TABLE = "table"
+    TABLE_ROW = "table_row"
 
 
 @dataclass(frozen=True)
-class Content:
-    text: str
-    href: Optional[str]
+class ContentWithAnnotation:
+    plain_text: Optional[str] = None
+    bold: bool = False
+    italic: bool = False
+    strikethrough: bool = False
+    underline: bool = False
+    code: bool = False
+    color: str = "default"
+    href: Optional[str] = None
+    is_equation: bool = False
+    is_toggleable: bool = False
+    is_caption: bool = False
+    highlight: bool = field(init=False, default=False)
+
+    def __post_init__(self):
+        object.__setattr__(self, "highlight", self.color != "default")
 
 
 @dataclass(frozen=True)
 class Blob:
-    content: str
     id: str
+    rich_text: List[ContentWithAnnotation]
     type: BlobType
+    children: Optional[List["Blob"]]
+    file: Optional[str]
+    language: Optional[str]
+    table_width: Optional[int]
+    table_cells: Optional[List[List[ContentWithAnnotation]]]
 
 
 @dataclass(frozen=True)
 class PageContent:
     blobs: List[Blob]
     id: str
-    properties: Dict[str, Union[str, bool, int]]
+    properties: Properties
     footer: Optional[Blob] = None
     header: Optional[Blob] = None
 

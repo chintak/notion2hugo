@@ -127,6 +127,9 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+.watchman*
+.DS_Store
+.pyre*
 
 # Spyder project settings
 .spyderproject
