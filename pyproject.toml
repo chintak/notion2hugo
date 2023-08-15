@@ -16,9 +16,10 @@ license = {file = "LICENSE"}
 name = "notion2hugo"
 readme = "README.md"
 requires-python = ">=3.9"
+version = "0.0.1"
 
 [project.optional-dependencies]
-dev = ["black", "bumpver", "isort", "pip-tools", "types-requests"]
+dev = ["black", "bumpver", "build", "twine", "isort", "pip-tools", "types-requests"]
 
 [project.urls]
 Homepage = "https://github.com/chintak/notion2hugo"
@@ -52,6 +53,7 @@ version_pattern = "MAJOR.MINOR.PATCH"
 [tool.bumpver.file_patterns]
 "pyproject.toml" = [
   'current_version = "{version}"',
+  'version = "{version}"',
 ]
 "src/notion2hugo/__init__.py" = [
   '^__version__ = "{version}"$',

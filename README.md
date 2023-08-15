@@ -90,15 +90,15 @@ provider_config_cls = "notion2hugo.provider.NotionProviderConfig"
 ## Supported Features
 
 Exporting markdown for the following Notion features is supported:
-1. Heading 1/2/3/Paragraphs
-2. Text annotations - bold, italics, underline, etc.
-3. Table (with markdown in cells)
-4. Images (with captions)
-5. Code (inline and block)
-6. [Mermaid diagrams](https://mermaid.js.org/)
-7. Blockquote
-8. Math equations (both inline and block)
-9. Text Highlight
+- [X] Heading 1/2/3/Paragraphs
+- [X] Text annotations - bold, italics, underline, etc.
+- [X] Table (with markdown in cells)
+- [X] Images (with captions)
+- [X] Code (inline and block)
+- [X] [Mermaid diagrams](https://mermaid.js.org/)
+- [X] Blockquote
+- [X] Math equations (both inline and block)
+- [X] Text Highlight
 
 ## Roadmap for future developement
 
