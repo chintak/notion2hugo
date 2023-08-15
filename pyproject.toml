@@ -50,10 +50,9 @@ tag_scope = "default"
 version_pattern = "MAJOR.MINOR.PATCH"
 
 [tool.bumpver.file_patterns]
-"README.md" = [
-  "{version}",
-  "{pep440_version}",
-]
 "pyproject.toml" = [
   'current_version = "{version}"',
+]
+"src/notion2hugo/__init__.py" = [
+  '^__version__ = "{version}"$',
 ]
