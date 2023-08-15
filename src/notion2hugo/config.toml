@@ -1,12 +1,11 @@
 [provider_config]
 # database_id = "<notion_database_id>" # override the id here or defaults to NOTION_DATABASE_ID env
-filter = {property = "# Status", status = {does_not_equal = "Not Started"}}
 # filter = {property = "# Status", status = {equals = "Outline"}}
+filter = {property = "# Status", status = {does_not_equal = "Not Started"}}
 
 [formatter_config]
 
 [exporter_config]
-# parent_dir = "/tmp/notion2hugo/posts"
 parent_dir = "/Users/chintak/Documents/notable-ml-blog/content/posts"
 post_name_property_key = "# Path"
 
