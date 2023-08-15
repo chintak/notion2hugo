@@ -7,6 +7,7 @@
 # database_id = "<notion_database_id>"
 ## specify filter here, refer to Notion API Dev resources for format
 # filter = {property = "# Status", status = {equals = "Outline"}}
+# filter = {property = "# Status", status = {does_not_equal = "Not Started"}}
 
 [formatter_config]
 

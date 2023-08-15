@@ -55,7 +55,7 @@ def parse_input_args():
         "config_path",
         type=open,
         help="Specify path to config.toml. "
-        "Clone `src/notion2hugo/config.toml.sample` with custom settings.",
+        "Clone `src/notion2hugo/config.sample.toml` with custom settings.",
     )
     return parser.parse_args()
 

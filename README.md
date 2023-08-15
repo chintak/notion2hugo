@@ -19,7 +19,7 @@ Follow the steps below to get started:
    export NOTION_TOKEN='<your-access-token-here>'
    export NOTION_DATABASE_ID='<database-id-with-read-integration-setup>'
    ```
-3. Clone the `src/notion2hugo/config.toml.sample` file as `config.toml` and add in your custom settings. You can leverage the properties in your Notion database in order to determine the name of the published post.
+3. Clone the `src/notion2hugo/config.sample.toml` file as `config.toml` and add in your custom settings. You can leverage the properties in your Notion database in order to determine the name of the published post.
 4. Run the script mentioned above and profit!
    ```bash
    $ publish_notion_to_hugo /path/to/config.toml
@@ -59,7 +59,7 @@ The Notion database can be setup in order to have properties as supported by Hug
 
 ## Configuration
 
-Here is the [`config.toml.sample`](https://github.com/chintak/notion2hugo/blob/master/src/notion2hugo/config.toml.sample):
+Here is the [`config.sample.toml`](https://github.com/chintak/notion2hugo/blob/master/src/notion2hugo/config.sample.toml):
 
 ```toml
 #
@@ -71,6 +71,7 @@ Here is the [`config.toml.sample`](https://github.com/chintak/notion2hugo/blob/m
 # database_id = "<notion_database_id>"
 ## specify filter here, refer to Notion API Dev resources for format
 # filter = {property = "# Status", status = {equals = "Outline"}}
+# filter = {property = "# Status", status = {does_not_equal = "Not Started"}}
 
 [formatter_config]
 
