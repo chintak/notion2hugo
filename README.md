@@ -22,6 +22,11 @@ $ publish_notion_to_hugo [-h] config_path
 
 ## Getting Started
 
+Install the package using Pip:
+```shell
+$ pip3 install notion2hugo
+```
+
 Follow the steps below to get started:
 1. Follow the Notion developer guide in order to [setup an Access Token and an Integration](https://developers.notion.com/docs/authorization) with at least "Read" access to the relevant database.
 2. Expose the access token and the database ID as environment variables in your shell.
