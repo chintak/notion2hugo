@@ -16,7 +16,7 @@ license = {file = "LICENSE"}
 name = "notion2hugo"
 readme = "README.md"
 requires-python = ">=3.9"
-version = "0.0.2"
+version = "0.1.0"
 
 [project.optional-dependencies]
 dev = ["black", "bumpver", "build", "twine", "isort", "pip-tools", "types-requests"]
@@ -41,7 +41,7 @@ publish_notion_to_hugo = "notion2hugo.__main__:main"
 [tool.bumpver]
 commit = true
 commit_message = "bump version {old_version} -> {new_version}"
-current_version = "0.0.2"
+current_version = "0.1.0"
 post_commit_hook = ""
 pre_commit_hook = ""
 push = false
