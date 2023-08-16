@@ -23,19 +23,9 @@ $ publish_notion_to_hugo [-h] config_path
 
 ## Demo
 
-```mermaid
-graph TD;
-    N[/Notion/]
-    P[publish_notion_to_hugo]
-    H[/Hugo-Md/]
+[Demo Notion Page](https://chintaksheth.notion.site/TEMPLATE-Markdown-Syntax-with-Notion-Hugo-cce2284449bf4a97a5222a150017db66) --> [Hugo Markdown Output](https://gist.github.com/chintak/ae65c187c962b9c0b9b4df7de9df22bc)
 
-    N --> P --> H;
-
-    click N "https://chintaksheth.notion.site/TEMPLATE-Markdown-Syntax-with-Notion-Hugo-cce2284449bf4a97a5222a150017db66" _blank
-    click H "https://gist.github.com/chintak/ae65c187c962b9c0b9b4df7de9df22bc" _blank
-```
-
-Feel free to use [Demo Notion Page](https://chintaksheth.notion.site/TEMPLATE-Markdown-Syntax-with-Notion-Hugo-cce2284449bf4a97a5222a150017db66) as a template for setting up your blogging Notion database.
+Feel free to use the [Demo Notion Page](https://chintaksheth.notion.site/TEMPLATE-Markdown-Syntax-with-Notion-Hugo-cce2284449bf4a97a5222a150017db66) as a template for setting up your blogging Notion database.
 
 ## Getting Started
 
