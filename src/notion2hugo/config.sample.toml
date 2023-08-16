@@ -21,3 +21,6 @@ post_name_property_key = "Title" # 'Title' prop is added by default.
 exporter_config_cls = "notion2hugo.exporter.MarkdownExporterConfig"
 formatter_config_cls = "notion2hugo.formatter.HugoFormatterConfig"
 provider_config_cls = "notion2hugo.provider.NotionProviderConfig"
+
+[logging]
+set_log_level = "DEBUG"

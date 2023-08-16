@@ -41,6 +41,7 @@ class HugoFormatter(BaseFormatter):
             language=None,
             table_width=None,
             table_cells=None,
+            is_checked=None,
         )
 
         return PageContent(

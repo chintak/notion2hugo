@@ -104,7 +104,7 @@ Exporting markdown for the following Notion features is supported:
 
 Currently, the following Notion features are not supported for export and will be supported in future versions:
 
-- [ ] Checklist or TODOs
+- [X] Checklist or TODOs
 - [ ] Callouts
 - [ ] Cross referencing pages in the database, that is, we'd like to update the URL appropriately to refer to the published post on the blog rather than to the notion page.
 - [ ] Gist, twitter or other embeds.

@@ -95,6 +95,12 @@ class MarkdownStyler:
         return cls._list_item(blob, list_ch="1.", indent=indent)
 
     @classmethod
+    def to_do(cls, blob: Blob, indent: int) -> str:
+        return cls._list_item(
+            blob, list_ch=f"- [{'X' if blob.is_checked else ' '}]", indent=indent
+        )
+
+    @classmethod
     def quote(cls, blob: Blob, indent: int) -> str:
         texts = [f"> {cls._style_content_with_annotation(blob.rich_text)}"]
         if blob.children:
@@ -154,7 +160,8 @@ class MarkdownStyler:
             return ""
         if not hasattr(cls, blob.type.value):
             raise ValueError(
-                f"{cls.__qualname__} does not support blob type = {blob.type.value}"
+                f"{cls.__qualname__} does not support blob type = {blob.type.value}.\n"
+                f"Blob: {blob}"
             )
         return "\n" + getattr(cls, blob.type.value)(blob, indent)
 
@@ -233,6 +240,7 @@ class MarkdownExporter(BaseExporter):
                     language=blob.language,
                     table_width=blob.table_width,
                     table_cells=blob.table_cells,
+                    is_checked=blob.is_checked,
                 )
             texts.append(MarkdownStyler.process(blob))
         texts.append(MarkdownStyler.process(content.footer))

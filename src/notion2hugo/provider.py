@@ -6,6 +6,7 @@ import os
 import shutil
 import tempfile
 from dataclasses import asdict, dataclass, field, fields
+from pprint import pformat
 from typing import Any, AsyncIterator, Dict, List, Optional
 
 import requests
@@ -115,6 +116,7 @@ class NotionParser:
             language=block.content.get("language", None),  # code block
             table_width=block.content.get("table_width"),  # table
             table_cells=table_cells,
+            is_checked=block.content.get("checked", None),  # todo
         )
 
     def download_image_locally(self, url: str) -> str:
@@ -221,6 +223,7 @@ class NotionProvider(BaseProvider):
                 else:
                     children_block_data = None
                 assert not block["has_children"] or children_block_data is not None
+                self.logger.debug(pformat(block))
                 block_data.append(
                     NotionBlockData(
                         id=block["id"],

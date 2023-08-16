@@ -1,5 +1,6 @@
 import argparse
 import importlib
+import logging
 import tomllib
 from typing import Any, Dict, TextIO, Type
 
@@ -61,11 +62,8 @@ def parse_input_args():
 
 
 def main():
-    logger = get_logger(__package__)
-
     args = parse_input_args()
     config = validate_and_load_config(args.config_path)
-
     provider_config_cls = import_and_load_config_cls(
         config["runner_config"]["provider_config_cls"]
     )
@@ -76,6 +74,12 @@ def main():
         config["runner_config"]["exporter_config_cls"]
     )
 
+    logger = get_logger(
+        __package__,
+        level=getattr(
+            logging, config.get("logging", {"set_log_level": "INFO"})["set_log_level"]
+        ),
+    )
     runner_config = RunnerConfig(
         provider_config=provider_config_cls(**config["provider_config"]),
         formatter_config=formatter_config_cls(**config["formatter_config"]),

@@ -64,6 +64,7 @@ class BlobType(StrEnum):
     QUOTE = "quote"
     TABLE = "table"
     TABLE_ROW = "table_row"
+    TO_DO = "to_do"
 
 
 @dataclass(frozen=True)
@@ -95,6 +96,7 @@ class Blob:
     language: Optional[str]
     table_width: Optional[int]
     table_cells: Optional[List[List[ContentWithAnnotation]]]
+    is_checked: Optional[bool]  # todo item
 
 
 @dataclass(frozen=True)
