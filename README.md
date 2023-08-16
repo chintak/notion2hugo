@@ -17,8 +17,25 @@ You can use Notion as a CMS in order to author, edit, and manage all your conten
 The package ships with a script in order to export content from Notion in a compatible format.
 
 ```shell
+$ pip3 install notion2hugo
 $ publish_notion_to_hugo [-h] config_path
 ```
+
+## Demo
+
+```mermaid
+graph TD;
+    N[/Notion/]
+    P[publish_notion_to_hugo]
+    H[/Hugo-Md/]
+
+    N --> P --> H;
+
+    click N "https://chintaksheth.notion.site/TEMPLATE-Markdown-Syntax-with-Notion-Hugo-cce2284449bf4a97a5222a150017db66" _blank
+    click H "https://gist.github.com/chintak/ae65c187c962b9c0b9b4df7de9df22bc" _blank
+```
+
+Feel free to use [Demo Notion Page](https://chintaksheth.notion.site/TEMPLATE-Markdown-Syntax-with-Notion-Hugo-cce2284449bf4a97a5222a150017db66) as a template for setting up your blogging Notion database.
 
 ## Getting Started
 
