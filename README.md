@@ -1,5 +1,15 @@
 # Notion2Hugo
 
+<!-- markdownlint-disable -->
+<div align="center">
+  <p>
+    <a href="https://pypi.org/project/notion2hugo/"><img alt="PyPI" src="https://img.shields.io/pypi/v/notion2hugo?style=for-the-badge&color=blue"></a>
+    <a href="LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/chintak/notion2hugo?style=for-the-badge"></a>
+    <img alt="PyPI - Python Version" src="https://img.shields.io/pypi/pyversions/notion2hugo?style=for-the-badge&color=blue">
+  </p>
+</div>
+<!-- markdownlint-enable -->
+
 Export content written in Notion to markdown, compatible for [Hugo](https://gohugo.io/) blog.
 
 You can use Notion as a CMS in order to author, edit, and manage all your content while leverage the power of Hugo in order to serve the content statically on your blog site. This lets you leverage the best of both worlds - powerful and expressive UX of Notion for authoring along with speed and pre-built feature rich themes for personal blog site.

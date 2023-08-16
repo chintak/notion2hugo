@@ -5,9 +5,11 @@ requires = ["setuptools>=65.0.0", "wheel"]
 [project]
 authors = [{name = "Chintak Sheth", email = "chintaksheth@gmail.com"}]
 classifiers = [
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Development Status :: 4 - Beta",
   "License :: OSI Approved :: MIT License",
-  "Programming Language :: Python",
-  "Programming Language :: Python :: 3",
 ]
 dependencies = ["notion-client==2.0.0", "requests==2.31.0", "pytest", "pytest-asyncio"]
 description = "Converts Notion documents into Markdown format files compatbile with the Hugo framework."
@@ -15,7 +17,7 @@ keywords = ["notion", "hugo", "markdown"]
 license = {file = "LICENSE"}
 name = "notion2hugo"
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.9, <4"
 version = "0.1.0"
 
 [project.optional-dependencies]
